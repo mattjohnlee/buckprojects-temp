@@ -1,31 +1,117 @@
+@mixin animate {
+  @include transition-property(all);
+  @include transition-duration(.25s);
+  @include transition-timing-function(ease-in-out);
+}
+
 ::selection {
-  background: yellow; 
+  background: white; 
   color: black;
 }
 
 ::-moz-selection { /* Firefox */
-  background: yellow; 
+  background: white; 
   color: black;
+}
+
+.browsehappy {
+  background: rgb(223, 93, 63);
+  padding: 2em 4em;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  text-align: center;
 }
 
 
 body {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: 'Alegreya Sans', Trebuchet, sans-serif;
+  font-size: 1.1em;
+  line-height: 2;
   color: white;
-  padding: 10% 0 0 80%;
+  background-image: url(../img/bg-s.jpg); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  @include background-size(cover);
+    padding: 10% 5% 5% 15%;
 
-  background: url(../img/bg.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  @include breakpoint($m) {
+    background-image: url(../img/bg-m.jpg); 
+    padding: 7.5% 10% 5% 5%;
+  }
+
+  @include breakpoint($l) {
+    background-image: url(../img/bg-l.jpg); 
+    padding: 5% 10% 5% 5%;
+  }
+
+  @include breakpoint($xl) {
+    background-image: url(../img/bg-xl.jpg); 
+    padding: 5% 15% 5% 5%;
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+  @include animate;
+
+  &:hover {
+    color: #ccc;
+  }
+}
+
+.content {
+  display: inline-block;
+
+  @include breakpoint($s) {
+    float: right;
+  }
 }
 
 
-p {
+.logo {
+  background: url("../img/buckprojects-white.svg") 0 0 no-repeat;
+  position: relative;
+  display: block;
+  text-indent: -9999px; 
+  text-decoration: none;
+  width: 175px;
+  height: 112px;
+  background-size: 175px 112px;
+
+  @include breakpoint($m) {
+    width: 250px;
+    height: 161px;
+    background-size: 250px 161px;
+  }
 }
 
+address {
+  margin: 2em 0 1em;
+
+  a:hover {
+    border-bottom: 1px dotted rgba(255,255,255,.33);
+  }
+}
 
 .instagram {
-  width: 1em;
+  svg {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: white;
+    @include animate;
+  }
+
+  &:hover {
+    border: none;
+    svg {
+      fill: #ccc;
+    }
+  }
+
 }

@@ -1,4 +1,4 @@
-# University of Virginia Admissions
+# Buck Projects
 
 Temporary placeholder site for Buck Projects. 
 

@@ -1,0 +1,455 @@
+body {
+	@include breakpoint($non-mobile) {
+		@include background-size(cover);
+		background-color: black;
+		background-image: url(../img/kyz-bg.jpg);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: 0 bottom; 
+	}
+}
+
+.blackscreen {
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: black;
+	display: none;
+}
+
+.mobile-background {
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.33)), url(../img/kyz-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: auto 120%;
+	background-position: center bottom;
+
+  @include breakpoint($non-mobile) {
+    display: none;
+  }
+}
+
+
+#oem-logo {
+	max-width: 25%;
+	margin-right: 5%;
+	margin-top: 2em;
+	float: right;
+
+	@include breakpoint($m) {
+		max-width: 150px;
+	}
+}
+
+#google_translate_element {
+	margin: 1em 5% 0 30px;
+	height: 25px;
+	overflow: hidden;
+	float: left;
+	@include animate;
+
+	@include breakpoint($m){
+		float: right;
+		clear: right;
+		@include opacity(.60);
+
+		&:hover {
+			@include opacity(1);
+		}
+
+		select {
+			width: 100%;
+			outline: none;
+		}
+	}
+}
+
+#kyz-logo {
+	margin: -10% 5% 5% -10%;
+	width: 75%;
+	float: left;
+
+	@include breakpoint($m) {
+		margin: -88px 2% 2% -88px;
+		width: 50%;
+		max-width: 600px;
+	}
+}
+
+
+.intro {
+	overflow: hidden;
+
+	@include breakpoint($xl) {
+		margin-bottom: 1em;
+	}
+	@include breakpoint($xxl) {
+		margin-bottom: 0;
+	}
+
+	#introtext {
+		@include container-padded;
+		clear: right;
+		float: left;
+
+		@include breakpoint($l) {
+			float: none;
+			padding-top: 1em;
+			margin-left: 45%;
+		}
+
+		@include breakpoint($xl) {
+			margin-left: 400px;
+		}
+
+		h2 {
+			font-weight: 200;
+
+			em {
+				font-style: normal;
+				font-size: 1.42em; /* for browsers not supporting rem-based scale */
+				font-size: ms(1.75);
+				margin-right: .1em;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				line-height: 1.5rem;
+				color: $yellow;
+			}
+
+			.hashtag {
+				font-weight: bold;
+			}		
+		}
+	}
+}
+
+
+.main {
+	clear: both;
+	overflow: hidden;
+
+	h2 {
+		@include breakpoint($l) {
+			max-width: 85%;
+		}
+	}
+
+	h3 {
+		color: tint($gray, 15%);
+		font-size: ms(0);
+		text-transform: uppercase;
+		margin: 2em 0 1em;
+		font-weight: bold;
+		clear: both;
+		letter-spacing: 1px;
+	}
+
+	ul.bullets {
+	    list-style: none;
+	    margin: 0 0 1em 1em;
+	    text-indent: -1em;
+
+	    li {
+	    	&:before {
+	    		content: "\2022";
+	    		padding-right: .5em;
+				color: tint($gray, 15%);
+	    	}
+		}
+	}
+
+	#downloads, #faq, #learn-more {
+		margin: 3.611114em 0; /* matches gutter spacing in grid */
+	}
+
+
+	#learn-more {
+		margin-top: 0;
+		.icon-group {
+			@include row(12);
+
+			div {
+				position: relative;
+				@include column(12,12);
+				margin-top: 3em;
+
+				@include breakpoint($s) {
+					@include column(6,12);
+					margin-top: 3em;
+
+					&#notify {
+						clear: left;
+					}
+				}
+
+				@include breakpoint($l) {
+					@include column(4,12);
+					margin-top: 3em;
+
+					&#notify {
+						clear: none;
+					}
+					&#makeaplan {
+						clear: left;
+					}
+				}
+
+				img {	
+					margin-bottom: -.375em;
+					max-width: 100.25%;
+					@include opacity(1);
+					@include animate;
+				    -webkit-transform: translateZ(0);
+				    -moz-transform: translateZ(0);
+				}
+
+				.text {
+					float: left;
+					margin-bottom: -2em;
+
+					h4 {
+						font-size: 1.61803em; /* for browsers not supporting rem-based scale */
+						font-size: ms(1);
+						font-weight: 700;
+						line-height: 1.25;
+						margin: .5em 0;
+					}
+
+					p {
+						color: white;
+						-webkit-hyphens: auto;
+					   -moz-hyphens: auto;
+					    -ms-hyphens: auto;
+					        hyphens: auto;
+					}
+				}
+
+				@include breakpoint($non-mobile) {
+					background-color: $yellow;
+	
+					.text {
+						position: absolute;
+						top: 0;
+						left: 0;
+						margin: 1.5em 1em;
+						@include animate;
+						color: white;
+
+						a {
+							&:hover {
+								text-decoration: none;
+							}
+						}
+
+						img {	
+							@include opacity(1);
+							@include animate;
+						}
+
+						h4 {
+							padding: 0;
+							margin: 0;
+							// @include text-shadow(1px 2px 10px rgba(0,0,0,.35));
+							@include animate;
+
+						}
+
+						p {
+							margin-top: 2em;
+							padding-top: 1em;
+							border-top: 1px dotted;
+							opacity: 0;
+							@include animate;
+						}
+					}
+
+					&:hover {
+
+						img {	
+							@include opacity(.1);
+						}
+
+						.text {
+
+							h4 {
+								@include text-shadow(none);
+								color: black;
+							}
+
+							p {
+								opacity: 1;
+								color: black;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.divider {
+		background-image: url(../img/map-bg.jpg);
+		background-repeat: repeat-y;
+		background-attachment: fixed;
+		background-position: 0 bottom; 
+		background-size: 100%;
+	
+		height: 10px;
+}
+
+
+#faq, #downloads {
+	h4 {
+		color: $yellow;
+		margin: 0 0 1em 1em;
+		text-indent: -1em;
+		@include animate;
+
+		&:before {
+			content: "\f105"; 
+			font-family: FontAwesome;
+			margin-right: .5em;
+		}
+
+		&:hover {
+			cursor: pointer;
+			color: darken($yelloworange, 5%);
+		}
+
+		&.active {
+			&:before {
+				content: "\f107"; 
+			}
+		}
+	}
+	p {
+		margin: 0 0 2em 1.25em;
+	}
+}
+
+#downloads {
+	#badgetext {
+		display: none;
+		@include breakpoint ($l) {
+			display: block;
+		}
+	}
+	#badges {
+		margin-top: 1em;
+		display: none;
+		@include breakpoint ($l) {
+			display: block;
+		}
+
+		img {
+			margin: 0 1.75em 0 0;
+			@include animate;
+
+			&:hover {
+				@include rotate (30deg);
+				@include transition-timing-function(ease-out);
+			}
+		}
+	}
+}
+
+
+footer {
+	background-color: white;
+	overflow: hidden;
+	padding: 2.5em 0 0 0;
+
+	h3 {
+		float: left;
+		margin: 0 1em 0 0;
+		letter-spacing: 1px;
+		color: shade($gray, 15%);
+		font-size: ms(0);
+		padding: .25em 0;
+		text-transform: uppercase;
+		font-weight: bold;
+		display: none;
+
+
+		@include breakpoint($m) {
+			display: block;
+		}
+	}
+
+	.social-icons {
+		text-align: center;
+		padding-bottom: 1.25em;
+		font-size: 1.75em;
+		float: left;
+
+		@include breakpoint($m) {
+			font-size: 1.25em;
+			padding-bottom: 2em;
+			text-align: left;
+		}
+
+		li {
+			display: inline;
+			margin: 0 .5em;
+
+			@include breakpoint($m) {
+				margin: 0 .8em;
+			}
+
+			a {
+				color: tint($gray, 50%);
+				@include animate;
+
+				&:hover {
+					color: $orange;
+				}
+			}
+		}
+	}
+
+	#share {
+		float: right;
+		h3 {
+			float: left;
+			margin: 0 1em 0 0;
+		}
+		#addthis {
+			float: right;
+			margin-top: 3px;
+		}
+	}
+
+
+	.backtotop {
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		font-weight: 600;
+		margin: 0;
+		clear: both;
+		text-align: center;
+
+		a {
+			color: $yellow;
+			padding: 2em;
+			background-color: black;
+			display: block;
+			text-decoration: none;
+
+			i {
+				margin-right: 1em;
+			}
+		}
+		@include breakpoint($m) {
+			display: none;
+		}
+	}
+}

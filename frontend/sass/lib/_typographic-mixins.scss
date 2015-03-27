@@ -1,0 +1,86 @@
+// typographic mixins and extends
+
+@mixin copy-face {
+  font-family: $sans;
+  font-weight: normal;
+}
+
+@mixin title-face {
+  font-family: $display;
+  font-weight: normal;
+}
+
+@mixin link {
+  color: $link-color;
+  text-decoration: none;
+  outline: none;
+
+  &:hover, &:focus {
+    color: $link-color-hover;
+    text-decoration: none;
+  }
+}
+
+@mixin heading-link {
+  text-decoration: none;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
+@mixin heading {
+  @include title-face;
+  margin: 1.5em 0 0.5em;
+  line-height: 1.5;
+  a {
+    @include heading-link;
+  }
+}
+
+@mixin paragraph {
+  @incldue copy-face;
+  font-size: 1em; /* for browsers not supporting rem-based scale */
+  font-size: ms(0);
+  line-height: 1.5;
+  hyphens: none;
+}
+
+@mixin heading-1 {
+  @include heading;
+  font-size: 2.61803em; /* for browsers not supporting rem-based scale */
+  font-size: ms(2);
+  line-height: 1.25;
+  letter-spacing: -1px;
+}
+
+@mixin heading-2 {
+  @include heading;
+  font-size: 1.61803em; /* for browsers not supporting rem-based scale */
+  font-size: ms(1);
+}
+
+@mixin heading-3 {
+  @include heading;
+  font-size: 1.27202em; /* for browsers not supporting rem-based scale */
+  font-size: ms(.5);
+}
+
+@mixin heading-4 {
+  @include heading;
+  font-size: 1em; /* for browsers not supporting rem-based scale */
+  font-size: ms(0);
+}
+
+@mixin heading-5 {
+  @include heading;
+  font-size: 0.78615em; /* for browsers not supporting rem-based scale */
+  font-size: ms(-.5);
+}
+
+@mixin heading-6 {
+  @include heading;
+  font-size: 0.61803em; /* for browsers not supporting rem-based scale */
+  font-size: ms(-1);
+}
+

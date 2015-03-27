@@ -1,0 +1,39 @@
+// Color variables
+
+$text-color: white; 
+// $heading-color: #d85529;
+
+$red: #ee3523;
+$orange: #f58220;
+$yellow: #f5ee31;
+$lightgreen: #bed62f;
+$darkgreen: #71bf44;
+$teal: #00a88e;
+$gray: rgb(138, 138, 138);
+$yelloworange: mix($orange, $yellow, 60%);
+
+
+$text-color-subtle: lighten($text-color, 30%);
+
+$link-color: $yellow;
+$link-color-hover: darken($yelloworange, 5%);
+
+$selection-bg-color: transparentize($yellow, .5);
+$selection-text-color: black;
+
+$border-color: #ccc;
+
+$background-color: #fff;
+$background-color-subtle: #eee;
+
+
+
+// Typographic variables
+
+$sans: 'Open Sans', Helvetica, Arial, sans-serif;
+$display: $sans;
+
+// Modular Scale variables
+
+$ms-ratio: $golden;
+$ms-base: 1rem;

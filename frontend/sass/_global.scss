@@ -24,6 +24,32 @@
   text-align: center;
 }
 
+html {
+  height: 100%;
+  border: 1em solid white;
+  @include box-sizing(border-box);
+
+  @include breakpoint($m) {
+    border-width: 1.5em;
+  }
+
+  @include breakpoint($l) {
+    border-width: 2em;
+  }
+
+  @include breakpoint($xl) {
+    border-width: 2.5em;
+  }
+
+  @include breakpoint($xxl) {
+    border-width: 3em;
+  }
+
+  @include breakpoint($xxxl) {
+    border-width: 4em;
+  }
+
+}
 
 body {
   font-family: 'Ideal Sans A', 'Ideal Sans B'; 

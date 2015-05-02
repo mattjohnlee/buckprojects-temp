@@ -26,85 +26,57 @@
 
 html {
   height: 100%;
-  border: 1em solid white;
   @include box-sizing(border-box);
-
-  @include breakpoint($m) {
-    border-width: 1.5em;
-  }
-
-  @include breakpoint($l) {
-    border-width: 2em;
-  }
-
-  @include breakpoint($xl) {
-    border-width: 2.5em;
-  }
-
-  @include breakpoint($xxl) {
-    border-width: 3em;
-  }
-
-  @include breakpoint($xxxl) {
-    border-width: 4em;
-  }
-
 }
 
 body {
   font-family: 'Ideal Sans A', 'Ideal Sans B'; 
   font-weight: 200; 
   font-style: normal;
-  font-size: 1.1em;
-  line-height: 2;
-  color: white;
   background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  @include background-size(cover);
-  padding: 8% 5% 5% 14%;
-  background-image: url(../img/bg-s.jpg); 
-  background-image: linear-gradient(
-      rgba(0, 0, 0, 0.15), 
-      rgba(0, 0, 0, 0.50)
-    ),
-  url(../img/bg-s.jpg);
+  background-image: url(../img/bg-sq-xs.jpg); 
+
+  @media only screen and (orientation:portrait) {
+    background-position: bottom center;
+    @include background-size(100% auto);
+  }
+
+  @media only screen and (orientation:landscape) {
+    background-position: top right;
+    @include background-size(auto 100%);
+  }
+
 
   @include breakpoint($s) {
-    background-image: url(../img/bg-s.jpg); 
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.10), 
-        rgba(0, 0, 0, 0.40)
-      ),
-    url(../img/bg-s.jpg);
+    background-image: url(../img/bg-sq-s.jpg); 
   }
 
   @include breakpoint($m) {
-    background-image: url(../img/bg-m.jpg); 
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.10), 
-        rgba(0, 0, 0, 0.40)
-      ),
-    url(../img/bg-m.jpg);
-    padding: 7.5% 7.5% 5% 7.5%;
+    background-image: url(../img/bg-sq-m.jpg); 
   }
 
   @include breakpoint($l) {
-    background-image: url(../img/bg-l.jpg); 
-    padding: 5% 10% 5% 5%;
+    background-image: url(../img/bg-v-l.jpg); 
   }
 
   @include breakpoint($xl) {
-    background-image: url(../img/bg-xl.jpg); 
-    padding: 5% 15% 5% 5%;
+    background-image: url(../img/bg-v-xl.jpg); 
+  }
+
+  @include breakpoint($xxl) {
+    background-image: url(../img/bg-v-xxl.jpg); 
+  }
+
+  @include breakpoint($xxxl) {
+    background-image: url(../img/bg-v-xxxl.jpg); 
   }
 }
 
 a {
-  color: white;
   text-decoration: none;
-  border-bottom: 1px dotted transparent;
+  border-bottom: 1px dotted;
   @include animate;
+  color: #000;
 
   &:hover {
     color: #ccc;
@@ -112,50 +84,87 @@ a {
 }
 
 .content {
-  display: inline-block;
+  overflow: hidden;
+  padding: 5% 0 0 5%;
+  @media only screen and (orientation:portrait) {
+    background-color: white;
+  }
 
-  @include breakpoint($s) {
-    float: right;
+  @include breakpoint($l) {
+    padding: 10% 0 0 10%;
   }
 }
 
 
 .logo {
-  background: url("../img/buckprojects-white.svg") 0 0 no-repeat;
+  background: url("../img/buckprojects-black.svg") 0 0 no-repeat;
   position: relative;
-  display: block;
   text-indent: -9999px; 
   text-decoration: none;
-  width: 175px;
-  height: 112px;
-  background-size: 175px 112px;
+  width: 120px;
+  height: 77px;
+  background-size: 120px 77px;
+  display: inline-block;
+  margin-bottom: 5%;
+
+  @media only screen and (orientation:portrait) {
+    float: left;
+    margin-right: 10%;
+  }
 
   @include breakpoint($m) {
+    width: 200px;
+    width: 45%;
+    height: 129px;
+    background-size: 200px 129px;
+  }
+
+  @include breakpoint($l) {
+    width: 225px;
+    width: 45%;
+    height: 145px;
+    background-size: 225px 145px;
+  }
+
+  @include breakpoint($xl) {
     width: 250px;
+    width: 45%;
     height: 161px;
     background-size: 250px 161px;
   }
 }
 
 address {
-  margin: 2em 0 1em;
+  font-size: .75em;
+  line-height: 1.6;
+  width: 50%;
 
-  a:hover {
-    border-bottom: 1px dotted rgba(255,255,255,.33);
+  @media only screen and (orientation:portrait) {
+    display: inline-block;
+    float: left;
+  }
+
+  @include breakpoint($m) {
+    font-size: 1em;
+  }
+
+  @include breakpoint($l) {
+    line-height: 1.8;
   }
 }
 
 .instagram {
+  display: block;
+  margin-top: 1.5em;
+  border: none;
   svg {
-    width: 1em;
-    height: 1em;
+    width: 1.25em;
+    height: 1.25em;
     display: inline-block;
-    fill: white;
     @include animate;
   }
 
   &:hover {
-    border: none;
     svg {
       fill: #ccc;
     }
